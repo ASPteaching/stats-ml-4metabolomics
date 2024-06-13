@@ -1,0 +1,5 @@
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+renderthis::to_pdf("3.1-StatisticsBackground.Rmd")
+renderthis::to_pdf("3.2-MultivariateStat-and-ML.Rmd")
