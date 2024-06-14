@@ -158,13 +158,38 @@ knitr::include_graphics("images/fig_4.png")
 
 # Model Validation (2)
 
+.pull-left[
+
+Metrics to evaluate the performance of classification on testing dataset:
+
+
+
+$$sensitivity = \frac{TP}{P}$$
+$$specificity =\frac{TN}{N}$$
+$$ precision=\frac{TP}{TP + FP}$$ 
+$$recall=\frac{TP}{TP + FN}$$
+
+]
+
+.pull-right[
+
+```{r out.width="60%", fig.align='center', fig.cap=''}
+knitr::include_graphics("images/Precisionrecall.png")
+```
+
+]
+
+---
+
+# Model Validation (3)
+
 Metrics to evaluate the performance of classification on testing dataset:
 
 - area under curve (AUC)
-- sensitivity (SENS)
+- sensitivity (SENS) 
 - specificity (SPEC)
-- precision (PREC)
-- recall (REC))
+- precision (PREC) 
+- recall (REC)) 
 
 ```{r out.width="100%", fig.align='center', fig.cap=''}
 knitr::include_graphics("images/table_1.png")
