@@ -1,6 +1,6 @@
 ---
 title: "Advanced Machine Learning"
-subtitle: 'Neural Networks, Deep Learning and Artificial Intelligence'
+subtitle: 'Neural Networks, Deep Learning <br>and Artificial Intelligence'
 format:
   revealjs: 
     incremental: false  

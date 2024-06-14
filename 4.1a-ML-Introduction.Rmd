@@ -1,0 +1,205 @@
+---
+title: 'Targeted Metabolomics Data Analysis: Unlocking Insights with Machine Learning, AI and Statistics'
+subtitle: 'Day 3 – Lecture 1a-Introduction to Machine Learning'
+author: "June 11-14, 2024"
+institute: "Barcelona, Spain"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, "mycss.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 22px;
+    padding: 1em 4em 1em 4em;
+}
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
+</style>
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, echo=FALSE,
+        message=FALSE,warning=FALSE,
+        fig.dim=c(4.8, 4.5), fig.retina=2, out.width="100%")
+
+knitr::opts_chunk$set(echo = FALSE)
+
+knitr::knit_hooks$set(mysize = function(before, options, envir) {
+  if (before) 
+    return(options$size)
+})
+```
+
+# Outline
+
+.columnwide[
+  ### 1) Introduction
+  ### 2) Statistical Learning
+  ### 3) Overfitting
+  ### 4) Evaluating Machine Learning Models
+  ### 5) The workflow of Machine Learning
+  ### 7) References and Resources
+]
+
+---
+
+class: inverse, middle, center
+
+name: Introduction
+
+# Introduction and motivation
+
+---
+
+# Machine Learning, A new field?
+
+.center[
+## *Machine Learning is The field of study that gives computers the ability to learn without being explicitly programmed.*”
+
+Arthur Samuel (1956)
+]
+
+```{r out.width="80%", fig.cap='From spectra and images to data tables'}
+knitr::include_graphics("3.1-StatisticsBackground_insertimage_1.png")
+```
+
+---
+
+# ML vs traditional programming
+
+```{r out.width="80%", fig.cap='From spectra and images to data tables'}
+knitr::include_graphics("3.1-StatisticsBackground_insertimage_2.png")
+```
+
+---
+
+
+# ML vs traditional programming (ctd.)
+
+```{r out.width="80%", fig.cap='From spectra and images to data tables'}
+knitr::include_graphics("3.1-StatisticsBackground_insertimage_3.png")
+```
+
+<!-- --- -->
+
+<!-- # ML vs conventional programming -->
+
+<!-- -	Conventional computer programs or algorithms perform tedious tasks faster and more accurately than humans -->
+
+<!--   - Tasks Example: *Addition, subtraction, spell-checking* -->
+
+<!-- -	Machine learning algorithms perform tasks that are difficult or infeasible to do via conventional computer algorithms  -->
+
+<!--   - Tasks Example: *Grammar checking, interpreting speech, image recognition* -->
+
+
+---
+
+
+<!-- # Learning vs Machine Learning -->
+
+<!-- - **Learning** -->
+
+<!--   - Any process by which an organism or system improves performance from experience. -->
+
+<!-- - **Machine Learning** -->
+
+<!--   –	A branch of artificial intelligence (AI) in which a computer automatically improves performance from experience. -->
+
+<!--   - A technique to develop programs that can make predictions or decisions without being explicitly programmed to do so -->
+
+<!-- --- -->
+
+
+
+---
+
+
+# A Machine Learning Workflow
+
+```{r out.width="80%", fig.cap='', fig.align='center'}
+knitr::include_graphics("3.1-StatisticsBackground_insertimage_4.png")
+```
+
+
+---
+
+
+# Another ML Workflow
+
+```{r out.width="80%", fig.cap='', fig.align='center'}
+knitr::include_graphics("3.1-StatisticsBackground_insertimage_5.png")
+```
+
+
+---
+
+
+# Contruct your dataset
+![Plot title. ](3.1-StatisticsBackground_insertimage_6.png)
+
+
+# Data Transformation
+![Plot title. ](3.1-StatisticsBackground_insertimage_7.png)
+
+# Feature Engineering
+
+
+# Scaling, Normalizing Standardizing
+
+
+```{r out.width="80%", fig.cap='', fig.align='center'}
+knitr::include_graphics("")
+```
+
+---
+
+
+# 
+
+```{r out.width="80%", fig.cap='', fig.align='center'}
+knitr::include_graphics("")
+```
+
+---
+
+
+# 
+
+```{r out.width="80%", fig.cap='', fig.align='center'}
+knitr::include_graphics("")
+```
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+name: Resources
+
+# References and Resources
+
+---
+
