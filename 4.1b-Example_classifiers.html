@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Predictive Modeling for Metabolomics Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alex Sanchez-Pla" />
+    <meta name="date" content="2024-06-14" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Predictive Modeling for Metabolomics Data
+]
+.subtitle[
+## Illustrative Example
+]
+.author[
+### Alex Sanchez-Pla
+]
+.institute[
+### Genetics, Microbiology &amp; Statistics Department <br> Universitat de Barcelona
+]
+.date[
+### 2024-06-14
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 22px;
+    padding: 1em 4em 1em 4em;
+}
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
+&lt;/style&gt;
+
+
+
+# Outline
+
+.columnwide[
+  ### 1) [An Illustrative Example](#Example)
+  ### 2) [References and Resources](#Resources)
+]
+
+---
+
+class: inverse, middle, center
+
+name: Example
+
+# An Illustrative Example
+---
+
+# Data (1)
+
+- LC-MS metabolomics dataset from [www.metabolomicsworkbench.org](https://www.metabolomicsworkbench.org) (Project ID: PR00038)
+
+- Plasma from 131 subjects was collected from the Chronic Obstructive Pulmonary Disease Gene study (COPDGene) study cohort and analyzed using untargeted LC-MS (C18+ and HILIC+) metabolomics.
+
+- Data were annotated, normalized and preprocessed using the methods described in:
+  - Cruickshank-Quinn CI, Jacobson S, Hughes G, Powell RL, Petrache I, Kechris K, Bowler R, Reisdorph N (2018) Metabolomics and transcriptomics pathway approach reveals outcome-specific perturbations in COPD. Sci Rep 8(1):17132
+  - Regan EA, Hokanson JE, Murphy JR, Make B, Lynch DA, Beaty TH, Curran-Everett D, Silverman EK, Crapo JD (2010) Genetic epidemiology of COPD (COPDGene) study design. COPD 7(1):32–43. [https://doi.org/10.3109/15412550903499522](https://doi.org/10.3109/15412550903499522)
+
+---
+
+# Data (2)
+
+- COPD is an extremely heterogeneous disease comprising **multiple phenotypes**.
+
+- The **131 subjects** were either current or former smokers with various chronic obstructive pulmonary disease (COPD) phenotypes including airflow obstruction, radiologic emphysema, and exacerbations. 
+
+- Within this set there were **56 males and 75 females**.
+
+- **2999 metabolites**
+
+---
+
+# Training and test sets
+
+- **70% training** (93 samples)
+
+  Fivefold CV: 5 different subsets (or fivefolds)
+  
+    - 4 fold for training
+    - 1 fold as holdout-test dataset
+  
+  The algorithms were trained against each of the folds.  
+  The metrics were computed (average over fivefolds) for the training dataset.
+
+- **30% test** (38 samples)
+
+  The test dataset was used to provide an **unbiased evaluation** of the best model fit on the training dataset.  
+  
+  For **model validation**, the performance of the test data was predicted using the trained models for three classifiers.
+  
+---
+
+# Implementing the predictive models
+
+- Different predictive models were implemented based on the training dataset using:
+  - metabolite abundances as the **predictor variables**
+  - Gender (Male/Female) as the **response**
+  
+- Then, the **Variable Importance Score**, which is a measure of feature relevance to gender for each metabolite was computed.
+---
+
+# Feature Ranking and Variable Importance
+
+.pull-left[
+
+**Metabolite relevant feature ranking bar plots** (top five metabolites) using **Variable Important Scores** ranging from 0 to 100.
+
+(a) Random Forest  
+(b) Support Vector Machine (SVM)  
+(c) Partial Least Square-Discriminant Analysis (PLS-DA) for the training dataset
+
+]
+
+.pull-right[
+
+&lt;img src="images/fig_3.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Model Validation (1)
+
+.pull-left[
+
+**ROC curves** of the testing dataset obtained from three classification algorithms (RF, SVM, and PLS-DA)
+
+]
+
+.pull-right[
+
+&lt;img src="images/fig_4.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Model Validation (2)
+
+Metrics to evaluate the performance of classification on testing dataset:
+
+- area under curve (AUC)
+- sensitivity (SENS)
+- specificity (SPEC)
+- precision (PREC)
+- recall (REC))
+
+&lt;img src="images/table_1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+name: Resources
+  
+# References and Resources
+
+---
+
+# Resources
+
+- [Predictive Modeling for MetabolomicsData](https://www.researchgate.net/publication/338652670_Predictive_Modeling_for_Metabolomics_Data#fullTextFileContent) Tusharkanti Ghosh, Weiming Zhang, Debashis Ghosh, Katerina Kechris
+
+- Metabolomics datasets: [www.metabolomicsworkbench.org](https://www.metabolomicsworkbench.org)
+
+- [R code](https://metabolomics-data.github.io/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
