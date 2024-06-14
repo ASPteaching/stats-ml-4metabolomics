@@ -203,7 +203,7 @@ knitr::include_graphics("images/ML_vs_DL-2.png")
     -   *It may take a while for AI to be deployed to its true potential---a potential the full extent of which no one has yet dared to dream*
     -   *but AI is coming, and it will transform our world in a fantastic way*".
 
-# The Artificial Neurone (AN)
+# The Artificial Neurone
 
 
 ## Emulating biological neurons
@@ -241,17 +241,6 @@ knitr::include_graphics("images/MacCulloghPitts-Neuron.png")
 
 See [the source of this picture](https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1) for an illustration on how this can be used to emulate logical operations such as AND, OR or NOT, but not XOR.
 
-## Limitations
-
-This first attempt to emulate neurons succeeded but with limitations:
-
--   What about non-Boolean (say, real) inputs?
-
--   What if all inputs are not equal?
-
--   What if we want to assign more importance to some inputs?
-
--   What about functions which are not linearly separable? Say XOR function
 
 ## Overcoming the limitations
 
@@ -266,29 +255,6 @@ This first attempt to emulate neurons succeeded but with limitations:
 
 [![](images/RosenblattPerceptron1.png){width="100%"}](https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d)
 
-## Rosenblatt's perceptron
-
-:::{.font80}
--   Instead of hand coding the thresholding parameter $\theta$,
--   It is added as one of the inputs, with the weight $w_0=-\theta$.
-:::
-
-[![](images/RosenblattPerceptron2.png){width="100%"}](https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d)
-
-## Comparison between the two
-
-[![](images/McCullaughVSRosenblattPerceptron.png){width="100%"}](https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d)
-
-## Comparison between the two
-
--   This is an improvement because
-
-    -   both, weights and threshold, can be learned and
-    -   the inputs can be real values
-
--   But there is still a drawback in that a single perceptron can only be used to implement linearly separable functions.
-
--   Artificial Neural Networks improve on this by introducing *Activation Functions*
 
 ## Activation in biological neurons
 
@@ -506,33 +472,6 @@ An ANN is a predictive model (a *learner*) whose properties and behaviour  can b
   - Such high number may be reduced by *Stochastic Gradient Descent*.
   - The evaluation of derivatives is simplified thanks to *Backpropagation*.
 
-
-## Forward propagation {.smaller}
-
-As described above the process that encompasses the computations required to go from the input values to the final output is known as *forward propagation*.
-
-The  weights are combined with the input to produce the final output.
-
-Each node, $a_i^{(2)}$ of the hidden layer opperates on all nodes of the input values
-
-\begin{eqnarray}
-a_1^{(2)}&=&f(\theta_{10}^{(1)}+\theta_{11}^{(1)}x_1+\theta_{12}^{(1)}x_2+\theta_{13}^{(1)}x_3)\\
-a_2^{(2)}&=&f(\theta_{20}^{(1)}+\theta_{21}^{(1)}x_1+\theta_{22}^{(1)}x_2+\theta_{23}^{(1)}x_3)\\
-a_3^{(2)}&=&f(\theta_{30}^{(1)}+\theta_{31}^{(1)}x_1+\theta_{32}^{(1)}x_2+\theta_{33}^{(1)}x_3))
-\end{eqnarray}
-
-The output of the hidden layer is transformed through the activation function:
-
-$$
-h_{\Theta}(x)=a_1^{(3)}=f(\theta_{10}^{(2)}+\theta_{11}^{(2)}a_1^{(2)}+\theta_{12}^{(2)}a_2^{(2)}+\theta_{13}^{(2)}a_3^{(2)}
-$$
-
-
-## Eficient Forward propagation
-
-- The way input data is transformed, through a series of weightings and transformations, until the ouput layer is called   *forward propagation*.
-
-- By organizing parameters in matrices, and using matrix-vector operations, fast linear algebra routines can be used to perform the required calculations in a fast efficent way.
 
 
 ## Multiple architectures for ANN

@@ -553,8 +553,8 @@
 </ul>
 </section></section>
 <section>
-<section id="the-artificial-neurone-an" class="title-slide slide level1 center">
-<h1>The Artificial Neurone (AN)</h1>
+<section id="the-artificial-neurone" class="title-slide slide level1 center">
+<h1>The Artificial Neurone</h1>
 
 </section>
 <section id="emulating-biological-neurons" class="slide level2">
@@ -600,16 +600,6 @@
 </ul>
 <p>See <a href="https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1">the source of this picture</a> for an illustration on how this can be used to emulate logical operations such as AND, OR or NOT, but not XOR.</p>
 </section>
-<section id="limitations" class="slide level2">
-<h2>Limitations</h2>
-<p>This first attempt to emulate neurons succeeded but with limitations:</p>
-<ul>
-<li><p>What about non-Boolean (say, real) inputs?</p></li>
-<li><p>What if all inputs are not equal?</p></li>
-<li><p>What if we want to assign more importance to some inputs?</p></li>
-<li><p>What about functions which are not linearly separable? Say XOR function</p></li>
-</ul>
-</section>
 <section id="overcoming-the-limitations" class="slide level2">
 <h2>Overcoming the limitations</h2>
 <ul>
@@ -624,32 +614,6 @@
 <section id="rosenblatts-perceptron" class="slide level2">
 <h2>Rosenblatt’s perceptron</h2>
 <p><a href="https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d"><img data-src="images/RosenblattPerceptron1.png" style="width:100.0%"></a></p>
-</section>
-<section id="rosenblatts-perceptron-1" class="slide level2">
-<h2>Rosenblatt’s perceptron</h2>
-<div class="font80">
-<ul>
-<li>Instead of hand coding the thresholding parameter <span class="math inline">\(\theta\)</span>,</li>
-<li>It is added as one of the inputs, with the weight <span class="math inline">\(w_0=-\theta\)</span>.</li>
-</ul>
-</div>
-<p><a href="https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d"><img data-src="images/RosenblattPerceptron2.png" style="width:100.0%"></a></p>
-</section>
-<section id="comparison-between-the-two" class="slide level2">
-<h2>Comparison between the two</h2>
-<p><a href="https://towardsdatascience.com/perceptron-the-artificial-neuron-4d8c70d5cc8d"><img data-src="images/McCullaughVSRosenblattPerceptron.png" style="width:100.0%"></a></p>
-</section>
-<section id="comparison-between-the-two-1" class="slide level2">
-<h2>Comparison between the two</h2>
-<ul>
-<li><p>This is an improvement because</p>
-<ul>
-<li>both, weights and threshold, can be learned and</li>
-<li>the inputs can be real values</li>
-</ul></li>
-<li><p>But there is still a drawback in that a single perceptron can only be used to implement linearly separable functions.</p></li>
-<li><p>Artificial Neural Networks improve on this by introducing <em>Activation Functions</em></p></li>
-</ul>
 </section>
 <section id="activation-in-biological-neurons" class="slide level2">
 <h2>Activation in biological neurons</h2>
@@ -871,28 +835,6 @@ y(\mathbf{x})=g\left(w_{0}+\sum_{i=1}^{d} w_{i} x_{i}\right)=g\left(\sum_{i=0}^{
 <li>Such high number may be reduced by <em>Stochastic Gradient Descent</em>.</li>
 <li>The evaluation of derivatives is simplified thanks to <em>Backpropagation</em>.</li>
 </ul></li>
-</ul>
-</section>
-<section id="forward-propagation" class="slide level2 smaller">
-<h2>Forward propagation</h2>
-<p>As described above the process that encompasses the computations required to go from the input values to the final output is known as <em>forward propagation</em>.</p>
-<p>The weights are combined with the input to produce the final output.</p>
-<p>Each node, <span class="math inline">\(a_i^{(2)}\)</span> of the hidden layer opperates on all nodes of the input values</p>
-<p><span class="math display">\[\begin{eqnarray}
-a_1^{(2)}&amp;=&amp;f(\theta_{10}^{(1)}+\theta_{11}^{(1)}x_1+\theta_{12}^{(1)}x_2+\theta_{13}^{(1)}x_3)\\
-a_2^{(2)}&amp;=&amp;f(\theta_{20}^{(1)}+\theta_{21}^{(1)}x_1+\theta_{22}^{(1)}x_2+\theta_{23}^{(1)}x_3)\\
-a_3^{(2)}&amp;=&amp;f(\theta_{30}^{(1)}+\theta_{31}^{(1)}x_1+\theta_{32}^{(1)}x_2+\theta_{33}^{(1)}x_3))
-\end{eqnarray}\]</span></p>
-<p>The output of the hidden layer is transformed through the activation function:</p>
-<p><span class="math display">\[
-h_{\Theta}(x)=a_1^{(3)}=f(\theta_{10}^{(2)}+\theta_{11}^{(2)}a_1^{(2)}+\theta_{12}^{(2)}a_2^{(2)}+\theta_{13}^{(2)}a_3^{(2)}
-\]</span></p>
-</section>
-<section id="eficient-forward-propagation" class="slide level2">
-<h2>Eficient Forward propagation</h2>
-<ul>
-<li><p>The way input data is transformed, through a series of weightings and transformations, until the ouput layer is called <em>forward propagation</em>.</p></li>
-<li><p>By organizing parameters in matrices, and using matrix-vector operations, fast linear algebra routines can be used to perform the required calculations in a fast efficent way.</p></li>
 </ul>
 </section>
 <section id="multiple-architectures-for-ann" class="slide level2">
