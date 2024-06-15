@@ -639,30 +639,39 @@ name: StatisticalTests
 
 # Different settings for statistical tests (1)
 
-- **Indirect comparisons**: 2 groups, 2 samples, unpaired
-    - E.g. **10** individuals: 5 suffer diabetes, 5 healthy
-    - One sample for each individual
-    - Typically: Two sample t-test or similar
+**Indirect comparisons**
+  
+- Two (or more) groups, unpaired samples
+  
+- Example:  **10** individuals: 5 suffer diabetes, 5 healthy
 
-```{r out.width="100%", fig.cap=''}
-knitr::include_graphics("images/1-StatisticsBackground-2_insertimage_3.png")
-```  
+  - One sample for each individual
+  
+  - Typically: Two sample t-test or similar
+
+
+```{r out.width="70%", fig.cap=''}
+knitr::include_graphics("images/1-StatisticsBackground-2_insertimage_4.png")
+```        
+
 
 ---
 
 # Different settings for statistical tests (2)
     
--  ** Direct comparisons:** Two groups, two samples, **paired**
-    - E.g. 6 individuals with brain stroke.
-    - Two samples from each: one from healthy (region 1) and one
-        from affected (region 2). That is a total of 2*6 = 12 samples
-    -   Typically: One sample t-test (also called paired t-test) or
-        similar, based on the individual differences between
-        conditions.
+**Direct comparisons:** 
+   
+- Two groups, **paired samples**
 
-```{r out.width="80%", fig.cap=''}
-knitr::include_graphics("images/1-StatisticsBackground-2_insertimage_4.png")
-```        
+- Example: 6 individuals with brain stroke.
+  
+  - Two samples from each: one from healthy (region 1) and one
+      from affected (region 2). That is a total of 2*6 = 12 samples
+  -   Typically: One sample t-test (also called paired t-test) or similar, based on the individual differences between         conditions.
+
+```{r out.width="70%", fig.cap=''}
+knitr::include_graphics("images/1-StatisticsBackground-2_insertimage_3.png")
+```  
 
 ---
 
